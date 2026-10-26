@@ -1,441 +1,1054 @@
 <!doctype html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>
-      Soporte Técnico Medellín | Reparación y Mantenimiento de Computadores
-    </title>
+    <title>Soporte Técnico Medellín | Reparación Física y Diagnóstico</title>
     <meta
       name="description"
-      content="Servicio técnico profesional de computadores en Medellín. Mantenimiento preventivo, repotenciación SSD, formateo y reparación a domicilio o en taller."
+      content="Reparación física y diagnóstico transparente de computadores en Medellín. Cero sorpresas en el precio, repuestos garantizados y mantenimiento profesional para empresas y particulares."
     />
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
+        darkMode: "class",
         theme: {
           extend: {
             colors: {
               brand: {
-                dark: "#0f172a", // Slate 900
-                navy: "#1e293b", // Slate 800
-                text: "#334155", // Slate 700
-                muted: "#64748b", // Slate 500
-                light: "#f8fafc", // Slate 50
-                border: "#e2e8f0", // Slate 200
-                accent: "#2563eb", // Royal Blue
-                whatsapp: "#16a34a", // Subtle Green
+                dark: "#020617", // Slate 950
+                navy: "#0f172a", // Slate 900
+                card: "#1e293b", // Slate 800
+                accent: "#2563eb", // Royal Electric Blue
+                accentGlow: "#3b82f6",
+                whatsapp: "#16a34a", // Glowing Emerald Green
                 whatsappHover: "#15803d",
               },
             },
             fontFamily: {
-              sans: [
-                "Inter",
-                "-apple-system",
-                "BlinkMacSystemFont",
-                "Segoe UI",
-                "Roboto",
-                "sans-serif",
-              ],
+              heading: ["'Plus Jakarta Sans'", "sans-serif"],
+              sans: ["'Inter'", "sans-serif"],
+            },
+            backgroundImage: {
+              "radial-grid":
+                "radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.18) 0%, rgba(2, 6, 23, 1) 75%)",
+              "radial-cta":
+                "radial-gradient(circle at 50% 50%, rgba(22, 163, 74, 0.15) 0%, rgba(15, 23, 42, 1) 80%)",
             },
           },
         },
       };
     </script>
-    <!-- Google Fonts Inter -->
+
+    <!-- Google Fonts: Plus Jakarta Sans & Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap"
       rel="stylesheet"
     />
+
     <style>
       body {
         font-family: "Inter", sans-serif;
-        color: #334155;
-        background-color: #ffffff;
+        background-color: #020617;
+        color: #f8fafc;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
+      /* Custom grid mesh pattern overlay */
+      .bg-mesh {
+        background-size: 40px 40px;
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.03) 1px,
+            transparent 1px
+          );
       }
     </style>
   </head>
-  <body class="antialiased selection:bg-slate-200 selection:text-slate-900">
+  <body
+    class="antialiased selection:bg-blue-500 selection:text-white bg-brand-dark text-slate-100 overflow-x-hidden"
+  >
     <!-- Header / Navbar -->
-    <header class="bg-gray-900 border-b border-slate-200 sticky top-0 z-40">
+    <header
+      class="bg-brand-dark/80 backdrop-blur-md border-b border-slate-800/80 sticky top-0 z-50 transition-all"
+    >
       <div
-        class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between"
+        class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between"
       >
-        <!-- Brand Logo / Image Placeholder -->
-        <a href="#" class="flex items-center gap-3 group">
-          <!-- Reemplazar logo.png / logo.svg según sea necesario -->
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 group">
           <img
             src="imagen_freelance.jpg"
-            alt="Soporte Técnico Medellín Logo"
-            onerror="
-              this.onerror = null;
-              this.parentElement.innerHTML =
-                '<div class=\'w-9 h-9 rounded-lg bg-slate-900 flex items-center justify-center text-white font-bold text-sm tracking-wider\'>ST</div><div class=\'flex flex-col\'><span class=\'font-bold text-slate-900 leading-tight text-base tracking-tight\'>Soporte Técnico</span><span class=\'text-[11px] font-medium text-slate-500 tracking-wider\'>MEDELLÍN &bull; AC</span></div>';
-            "
-            class="h-9 w-auto object-contain"
+            alt="Logo de Soporte Técnico"
+            class="w-10 h-10 rounded-xl object-contain group-hover:scale-105 transition-transform"
           />
+          <div class="flex flex-col">
+            <span
+              class="font-extrabold text-white text-base tracking-tight font-heading leading-none"
+              >Soporte Técnico</span
+            >
+            <span
+              class="text-[10px] font-bold text-blue-400 tracking-widest uppercase mt-1"
+              >Medellín &bull; Soluciones</span
+            >
+          </div>
         </a>
 
-        <!-- Navigation Links -->
+        <!-- Nav Links -->
         <nav
-          class="hidden md:flex items-center space-x-7 text-sm font-medium text-slate-600"
+          class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300"
         >
-          <a
-            href="#servicios"
-            class="text-white hover:text-slate-300 transition-colors"
-            >Servicios</a
+          <a href="#dolores" class="hover:text-blue-400 transition-colors"
+            >Problemas</a
           >
-          <a
-            href="#proceso"
-            class="text-white hover:text-slate-300 transition-colors"
-            >Cómo trabajamos</a
+          <a href="#segmentacion" class="hover:text-blue-400 transition-colors"
+            >Soluciones</a
+          >
+          <a href="#servicios" class="hover:text-blue-400 transition-colors"
+            >Servicios Físicos</a
+          >
+          <a href="#testimonios" class="hover:text-blue-400 transition-colors"
+            >Honestidad</a
           >
         </nav>
 
-        <!-- Direct Contact Button -->
+        <!-- Von Restorff WhatsApp Header Button -->
         <a
-          href="https://wa.me/573244712828?text=Hola,%20quisiera%20consultar%20por%20un%20servicio%20técnico%20para%20mi%20computador"
+          href="https://wa.me/573244712828?text=Hola,%20necesito%20diagnosticar%20mi%20computador%20sin%20enredos"
           target="_blank"
           rel="noopener"
-          class="bg-brand-whatsapp hover:bg-brand-whatsappHover text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg transition-colors flex items-center gap-2 shadow-sm"
+          class="bg-brand-whatsapp hover:bg-brand-whatsappHover text-white text-xs sm:text-sm font-bold px-5 py-2.5 rounded-xl transition-all duration-300 shadow-lg shadow-emerald-900/30 hover:shadow-emerald-500/30 flex items-center gap-2 transform hover:-translate-y-0.5 border border-emerald-500/30"
         >
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path
               d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
             />
           </svg>
-          <span>WhatsApp</span>
+          <span>Escribir por WhatsApp</span>
         </a>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
-      <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-        <h1
-          class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight"
-        >
-          Reparación y mantenimiento de computadores Medellín
-        </h1>
+    <!-- HERO SECTION (Deep Tech Atmosphere + Z-Pattern + Mockup) -->
+    <section
+      class="relative min-h-[85vh] py-20 sm:py-28 bg-radial-grid bg-mesh overflow-hidden flex items-center"
+    >
+      <!-- Glow ambient lights -->
+      <div
+        class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/20 rounded-full blur-[120px] pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-96 h-96 bg-indigo-600/15 rounded-full blur-[120px] pointer-events-none"
+      ></div>
 
-        <p
-          class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
-        >
-          Servicio técnico especializado para laptops y PC de escritorio.
-          Diagnóstico claro, repuestos de calidad y garantía por escrito en cada
-          trabajo.
-        </p>
-
-        <!-- Key Trust Bullets (Minimal) -->
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 w-full">
         <div
-          class="mt-8 flex flex-wrap justify-center gap-y-2 gap-x-6 text-xs sm:text-sm font-medium text-slate-700"
+          class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center"
         >
-          <span class="flex items-center gap-1.5">
-            <svg
-              class="w-4 h-4 text-emerald-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          <!-- Left Column: Value Proposition -->
+          <div class="lg:col-span-7 space-y-8 text-left">
+            <div
+              class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/30 text-blue-400 text-xs font-semibold tracking-wide"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Diagnóstico honesto
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg
-              class="w-4 h-4 text-emerald-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              <span
+                class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"
+              ></span>
+              <span class="text-slate-200">Diagnóstico Claro en Medellín</span>
+              <span class="text-blue-500">&bull;</span>
+              <span class="text-emerald-400 font-bold">Sin Sorpresas</span>
+            </div>
+
+            <h1
+              class="text-4xl sm:text-6xl lg:text-6xl font-black tracking-tight leading-[1.1] font-heading"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Garantía por escrito
-          </span>
-          <span class="flex items-center gap-1.5">
-            <svg
-              class="w-4 h-4 text-emerald-600"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+              Reparación física de computadores en Medellín,
+              <span
+                class="bg-gradient-to-r from-blue-400 via-indigo-300 to-amber-300 bg-clip-text text-transparent"
+                >sin enredos en el precio.</span
+              >
+            </h1>
+
+            <p
+              class="text-base sm:text-xl text-slate-300 leading-relaxed max-w-2xl font-normal"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2.5"
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Atención en taller o a domicilio
+              Diagnosticamos la falla real de tu laptop o PC. Servicio
+              transparente y directo para empresas y particulares, en taller o a
+              domicilio.
+            </p>
+
+            <!-- Value Bullets -->
+            <div
+              class="space-y-3 pt-2 text-sm sm:text-base font-medium text-slate-300"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 flex-shrink-0"
+                >
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span
+                  ><strong class="text-white">Cero cobros inventados:</strong>
+                  Sabes qué falla exactamente antes de pagar.</span
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 flex-shrink-0"
+                >
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span
+                  ><strong class="text-white">Repuestos garantizados:</strong>
+                  Nada de piezas cambiadas o engaños.</span
+                >
+              </div>
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-5 h-5 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 flex-shrink-0"
+                >
+                  <svg
+                    class="w-3.5 h-3.5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="3"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <span
+                  ><strong class="text-white"
+                    >Garantía real por escrito:</strong
+                  >
+                  Respaldamos cada soldadura y componente.</span
+                >
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div
+              class="pt-4 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center"
+            >
+              <a
+                href="https://wa.me/573244712828?text=Hola,%20quiero%20cotizar%20la%20reparación%20de%20mi%20computador"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center gap-3 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-bold text-base px-8 py-4 rounded-2xl transition-all duration-300 shadow-xl shadow-emerald-950/50 hover:shadow-emerald-600/30 transform hover:-translate-y-1 border border-emerald-400/30"
+              >
+                <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <path
+                    d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                  />
+                </svg>
+                <span>Cotizar mi reparación ahora</span>
+              </a>
+              <a
+                href="#dolores"
+                class="inline-flex items-center justify-center gap-2 bg-slate-900/80 hover:bg-slate-800 text-slate-300 hover:text-white font-semibold text-sm px-6 py-4 rounded-2xl border border-slate-800 transition-all"
+              >
+                <span>Ver qué le pasa a mi PC</span>
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Diagnostic Dashboard Mockup -->
+          <div class="lg:col-span-5 relative">
+            <div
+              class="absolute -inset-1 bg-gradient-to-r from-blue-600 via-indigo-500 to-emerald-500 rounded-3xl blur-xl opacity-30 animate-pulse"
+            ></div>
+
+            <div
+              class="relative backdrop-blur-xl bg-slate-900/80 border border-slate-700/60 shadow-2xl rounded-3xl p-6 sm:p-8 space-y-6"
+            >
+              <!-- Mockup Header -->
+              <div
+                class="flex items-center justify-between pb-4 border-b border-slate-800"
+              >
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <div
+                  class="text-[11px] font-mono text-slate-400 bg-slate-950 px-3 py-1 rounded-md border border-slate-800"
+                >
+                  STATUS: HARDWARE DIAGNOSTIC
+                </div>
+              </div>
+
+              <!-- Diagnostic Simulated Metrics -->
+              <div class="space-y-4">
+                <!-- CPU Temp Check -->
+                <div
+                  class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800/80 flex items-center justify-between"
+                >
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-9 h-9 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center font-bold"
+                    >
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M13 10V3L4 14h7v7l9-11h-7z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-400 font-mono">
+                        Temperatura CPU
+                      </div>
+                      <div class="text-sm font-bold text-slate-200">
+                        89°C &bull;
+                        <span class="text-red-400">Sobrecalentamiento</span>
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    class="text-[10px] bg-red-500/10 text-red-400 px-2.5 py-1 rounded-full font-bold border border-red-500/20"
+                    >Acción: Limpieza</span
+                  >
+                </div>
+
+                <!-- RAM Health -->
+                <div
+                  class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800/80 flex items-center justify-between"
+                >
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold"
+                    >
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-400 font-mono">
+                        Estado Disco NVMe / SSD
+                      </div>
+                      <div class="text-sm font-bold text-slate-200">
+                        100% Salud Integral
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    class="text-[10px] bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded-full font-bold border border-emerald-500/20"
+                    >OK</span
+                  >
+                </div>
+
+                <!-- Display & Screen Test -->
+                <div
+                  class="bg-slate-950/70 p-4 rounded-2xl border border-slate-800/80 flex items-center justify-between"
+                >
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="w-9 h-9 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center font-bold"
+                    >
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                    </div>
+                    <div>
+                      <div class="text-xs text-slate-400 font-mono">
+                        Bus de Video & Flex
+                      </div>
+                      <div class="text-sm font-bold text-slate-200">
+                        Falla de parpadeo detectada
+                      </div>
+                    </div>
+                  </div>
+                  <span
+                    class="text-[10px] bg-amber-500/10 text-amber-400 px-2.5 py-1 rounded-full font-bold border border-amber-500/20"
+                    >Revisar Flex</span
+                  >
+                </div>
+              </div>
+
+              <!-- Recommendation Footer -->
+              <div
+                class="bg-blue-950/40 p-4 rounded-2xl border border-blue-500/30 text-xs text-blue-200 flex items-center justify-between"
+              >
+                <span>¿Quieres saber exactamente qué tiene el tuyo?</span>
+                <span class="font-bold text-white underline"
+                  >Agendar revisión &rarr;</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: REAL PAIN POINTS (Dolores Reales) -->
+    <section
+      id="dolores"
+      class="py-24 bg-brand-navy/60 border-y border-slate-800/80 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span
+            class="text-xs font-bold text-blue-400 tracking-widest uppercase bg-blue-950/60 border border-blue-500/20 px-3.5 py-1.5 rounded-full"
+          >
+            ¿Identificas alguno de estos síntomas?
           </span>
+          <h2
+            class="text-3xl sm:text-5xl font-black text-white tracking-tight font-heading"
+          >
+            Atacamos el dolor de raíz,
+            <span
+              class="bg-gradient-to-r from-blue-400 to-indigo-300 bg-clip-text text-transparent"
+              >sin cambiar piezas por cambiar.</span
+            >
+          </h2>
+          <p class="text-slate-400 text-base sm:text-lg">
+            No adivinamos ni te hacemos gastar en repuestos innecesarios.
+            Resolvemos la falla física real.
+          </p>
         </div>
 
-        <!-- Primary Action Button -->
-        <div class="mt-10">
+        <!-- Problem Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Problem 1: Lentitud Extrema -->
+          <div
+            class="p-8 rounded-3xl bg-slate-900/70 border border-amber-500/30 hover:border-amber-500/60 transition-all duration-300 hover:-translate-y-1.5 shadow-xl group"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-xs font-mono font-semibold text-amber-400 uppercase tracking-widest"
+              >Frustración Diaria</span
+            >
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3 font-heading">
+              Tu PC va a paso de tortuga
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              Demora 10 minutos para prender, las aplicaciones se congelan y el
+              ventilador suena como turbina de avión. Suele ser disco agotado,
+              polvo o pasta térmica seca.
+            </p>
+            <div
+              class="text-xs font-bold text-amber-300 flex items-center gap-1"
+            >
+              <span>Solución: Mantenimiento + SSD acelerador</span> &rarr;
+            </div>
+          </div>
+
+          <!-- Problem 2: Pantalla Azul BSOD -->
+          <div
+            class="p-8 rounded-3xl bg-gradient-to-br from-blue-950/90 to-slate-900/90 border border-blue-500/40 hover:border-blue-400 transition-all duration-300 hover:-translate-y-1.5 shadow-xl group relative overflow-hidden"
+          >
+            <div
+              class="absolute -right-10 -bottom-10 text-blue-900/20 font-mono text-9xl font-black select-none pointer-events-none"
+            >
+              BSOD
+            </div>
+            <div
+              class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-xs font-mono font-semibold text-blue-400 uppercase tracking-widest"
+              >Error Crítico: 0x0000001A</span
+            >
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3 font-heading">
+              El temido error de Pantalla Azul
+            </h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+              Cierres imprevistos mientras estás trabajando, la pantalla se pone
+              azul o negra y pierdes lo que estabas haciendo. Identificamos si
+              es memoria RAM, voltaje o placa.
+            </p>
+            <div
+              class="text-xs font-bold text-blue-300 flex items-center gap-1"
+            >
+              <span>Solución: Diagnóstico de componentes</span> &rarr;
+            </div>
+          </div>
+
+          <!-- Problem 3: Falla Física / Golpes -->
+          <div
+            class="p-8 rounded-3xl bg-slate-900/70 border border-emerald-500/30 hover:border-emerald-500/60 transition-all duration-300 hover:-translate-y-1.5 shadow-xl group"
+          >
+            <div
+              class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold mb-6 group-hover:scale-110 transition-transform"
+            >
+              <svg
+                class="w-7 h-7"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                />
+              </svg>
+            </div>
+            <span
+              class="text-xs font-mono font-semibold text-emerald-400 uppercase tracking-widest"
+              >Daño Físico & Estructura</span
+            >
+            <h3 class="text-2xl font-bold text-white mt-1 mb-3 font-heading">
+              Bisagras rotas, humedad o golpes
+            </h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-6">
+              La pantalla no da video, el teclado no responde o la tapa se está
+              despegando al abrirla. Reparamos la estructura física con piezas
+              originales de reemplazo.
+            </p>
+            <div
+              class="text-xs font-bold text-emerald-300 flex items-center gap-1"
+            >
+              <span>Solución: Cambio de piezas & soldadura</span> &rarr;
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: AUDIENCE SEGMENTATION (Empresas vs. Particulares) -->
+    <section id="segmentacion" class="py-28 max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <h2
+          class="text-3xl sm:text-5xl font-black text-white tracking-tight font-heading"
+        >
+          Soluciones a la medida de tu necesidad
+        </h2>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Diferenciamos la urgencia de una oficina de la de un trabajador
+          independiente en casa.
+        </p>
+      </div>
+
+      <!-- Parallel High-Contrast Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Corporate Card -->
+        <div
+          class="backdrop-blur-md bg-slate-900/60 border border-slate-800/80 hover:border-blue-500/50 rounded-3xl p-8 sm:p-10 transition-all duration-300 hover:-translate-y-1.5 shadow-2xl flex flex-col justify-between group relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-2xl pointer-events-none"
+          ></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <div
+                class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 text-blue-400 flex items-center justify-center font-bold text-2xl group-hover:bg-blue-600 group-hover:text-white transition-colors"
+              >
+                <svg
+                  class="w-7 h-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text-xs font-mono font-bold uppercase tracking-widest text-blue-400 bg-blue-950/80 px-3 py-1 rounded-full border border-blue-500/30"
+                >Corporativo & PyMEs</span
+              >
+            </div>
+
+            <h3 class="text-3xl font-bold text-white mb-4 font-heading">
+              Soporte Técnico Empresarial
+            </h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              Evitamos que las computadoras de la oficina se queden paradas.
+              Ofrecemos mantenimiento preventivo masivo, diagnóstico ágil de
+              flota de equipos y respuesta prioritaria para empresas en
+              Medellín.
+            </p>
+
+            <div
+              class="space-y-3 text-sm text-slate-300 mb-8 border-t border-slate-800/80 pt-6"
+            >
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-4 h-4 text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span>Mantenimiento preventivo físico de flota entera</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-4 h-4 text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span>Facturación electrónica legal para empresas</span>
+              </div>
+            </div>
+          </div>
+
           <a
-            href="https://wa.me/573244712828?text=Hola,%20quisiera%20consultar%20por%20un%20servicio%20técnico%20para%20mi%20computador"
+            href="https://wa.me/573244712828?text=Hola,%20tengo%20una%20empresa%20en%20Medell%C3%ADn%20y%20necesito%20planes%20de%20mantenimiento"
             target="_blank"
             rel="noopener"
-            class="inline-flex items-center justify-center gap-2.5 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-semibold text-base px-7 py-3.5 rounded-lg shadow-sm transition-colors"
+            class="w-full inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-6 py-4 rounded-xl transition-all shadow-lg shadow-blue-950/50"
           >
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <span>Planes para Empresas</span>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
-                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-            <span>Consultar por WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Particular / Freelancer Card -->
+        <div
+          class="backdrop-blur-md bg-slate-900/60 border border-slate-800/80 hover:border-emerald-500/50 rounded-3xl p-8 sm:p-10 transition-all duration-300 hover:-translate-y-1.5 shadow-2xl flex flex-col justify-between group relative overflow-hidden"
+        >
+          <div
+            class="absolute top-0 right-0 w-32 h-32 bg-emerald-600/10 rounded-full blur-2xl pointer-events-none"
+          ></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-8">
+              <div
+                class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold text-2xl group-hover:bg-brand-whatsapp group-hover:text-white transition-colors"
+              >
+                <svg
+                  class="w-7 h-7"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
+              <span
+                class="text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/80 px-3 py-1 rounded-full border border-emerald-500/30"
+                >Freelancers & Hogar</span
+              >
+            </div>
+
+            <h3 class="text-3xl font-bold text-white mb-4 font-heading">
+              Reparación para Particulares
+            </h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+              Revive tu herramienta de trabajo diaria. Reparamos laptops
+              personales y computadores de escritorio con repuestos certificados
+              y explicación directa en lenguaje cotidiano.
+            </p>
+
+            <div
+              class="space-y-3 text-sm text-slate-300 mb-8 border-t border-slate-800/80 pt-6"
+            >
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span>Servicio a domicilio o entrega en taller cercano</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <svg
+                  class="w-4 h-4 text-emerald-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span>Cero tecnicismos confusos, comunicación clara</span>
+              </div>
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/573244712828?text=Hola,%20soy%20particular%20y%20necesito%20arreglar%20mi%20computador"
+            target="_blank"
+            rel="noopener"
+            class="w-full inline-flex items-center justify-center gap-2 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-bold text-sm px-6 py-4 rounded-xl transition-all shadow-lg shadow-emerald-950/50"
+          >
+            <span>Arreglar mi PC</span>
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Services Grid (4 Key Services) -->
+    <!-- SECTION: PHYSICAL HARDWARE SERVICES GRID -->
     <section
       id="servicios"
-      class="py-16 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6"
+      class="py-24 bg-brand-navy/40 border-y border-slate-800/80"
     >
-      <div class="mb-12">
-        <h2
-          class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight"
-        >
-          Servicios principales
-        </h2>
-        <p class="mt-2 text-sm sm:text-base text-slate-600">
-          Soluciones preventivas y correctivas para mantener tu equipo
-          funcionando de forma óptima.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Service 1 -->
-        <div
-          class="p-6 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 font-semibold mb-4 text-sm"
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="max-w-3xl mb-16 space-y-4">
+          <span
+            class="text-xs font-bold text-blue-400 tracking-widest uppercase bg-blue-950/60 border border-blue-500/20 px-3.5 py-1.5 rounded-full"
           >
-            01
-          </div>
-          <h3 class="text-lg font-bold text-slate-900">
-            Mantenimiento físico y pasta térmica
-          </h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Limpieza profunda de componentes internos, disipadores y
-            ventiladores. Aplicación de pasta térmica de alta conductividad para
-            prevenir sobrecalentamiento y aumentar la vida útil de tu equipo.
-          </p>
-        </div>
-
-        <!-- Service 2 -->
-        <div
-          class="p-6 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 font-semibold mb-4 text-sm"
-          >
-            02
-          </div>
-          <h3 class="text-lg font-bold text-slate-900">
-            Optimización e instalación de SSD / Software
-          </h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Aumento de velocidad mediante instalación de unidades de estado
-            sólido (SSD) y ampliación de RAM. Formateo limpio de sistema
-            operativo, paquetes de oficina, controladores y eliminación de
-            virus.
-          </p>
-        </div>
-
-        <!-- Service 3 -->
-        <div
-          class="p-6 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 font-semibold mb-4 text-sm"
-          >
-            03
-          </div>
-          <h3 class="text-lg font-bold text-slate-900">
-            Reparación de hardware y pantallas
-          </h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Reemplazo de pantallas rotas, reparación o reconstrucción de
-            bisagras dañadas, cambio de teclados, baterías, cargadores y
-            solución a problemas de encendido o carga.
-          </p>
-        </div>
-
-        <!-- Service 4 -->
-        <div
-          class="p-6 rounded-xl border border-slate-200 bg-white hover:border-slate-300 transition-colors"
-        >
-          <div
-            class="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-800 font-semibold mb-4 text-sm"
-          >
-            04
-          </div>
-          <h3 class="text-lg font-bold text-slate-900">
-            Asesoría y ensamble de PC
-          </h3>
-          <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-            Configuración e instalación de computadores a la medida para trabajo
-            pesado, diseño gráfico o gaming. Selección optimizada de componentes
-            según tu presupuesto.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Process Section (How We Work) -->
-    <section
-      id="proceso"
-      class="py-16 sm:py-20 bg-slate-50 border-y border-slate-200"
-    >
-      <div class="max-w-5xl mx-auto px-4 sm:px-6">
-        <div class="mb-12 text-left">
+            Servicios Físicos Específicos
+          </span>
           <h2
-            class="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight"
+            class="text-3xl sm:text-5xl font-black text-white tracking-tight font-heading"
           >
-            Cómo trabajamos
+            Especialistas en Hardware (Fierro a fierro)
           </h2>
-          <p class="mt-2 text-sm sm:text-base text-slate-600">
-            Proceso sencillo y transparente desde la primera consulta.
+          <p class="text-slate-400 text-base sm:text-lg">
+            Intervenciones técnicas precisas en la estructura física y circuitos
+            de tu equipo.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Step 1 -->
-          <div class="relative">
-            <span
-              class="text-xs font-bold uppercase tracking-wider text-slate-400"
-              >Paso 1</span
+          <!-- Block 1 -->
+          <div
+            class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="text-4xl font-black text-blue-500/30 mb-6 font-heading"
+              >
+                01
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 font-heading">
+                Diagnóstico de Hardware 100% Honestísimo
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Pruebas de estrés a la RAM, motherboard, procesador y disco. Te
+                entregamos un reporte exacto de qué pieza falla antes de pedir
+                la primera moneda.
+              </p>
+            </div>
+            <div
+              class="mt-8 pt-4 border-t border-slate-800 text-xs font-mono text-blue-400"
             >
-            <h3 class="text-base font-bold text-slate-900 mt-1">
-              Consulta inicial
-            </h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Nos escribes por WhatsApp describiendo la falla o requerimiento de
-              tu computador.
-            </p>
+              // REVISIÓN PREVIA SIN COMPROMISO
+            </div>
           </div>
 
-          <!-- Step 2 -->
-          <div class="relative">
-            <span
-              class="text-xs font-bold uppercase tracking-wider text-slate-400"
-              >Paso 2</span
+          <!-- Block 2 -->
+          <div
+            class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="text-4xl font-black text-blue-500/30 mb-6 font-heading"
+              >
+                02
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 font-heading">
+                Cambio de Componentes & Pantallas
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Reemplazo de pantallas LED/OLED rotas, teclados completos,
+                bisagras de laptops, puertos de carga (Jack DC), baterías
+                integradas y micro-soldadura.
+              </p>
+            </div>
+            <div
+              class="mt-8 pt-4 border-t border-slate-800 text-xs font-mono text-blue-400"
             >
-            <h3 class="text-base font-bold text-slate-900 mt-1">
-              Diagnóstico y presupuesto
-            </h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Revisamos tu equipo en taller o a domicilio y te presentamos un
-              presupuesto claro antes de proceder.
-            </p>
+              // REPUESTOS CERTIFICADOS Y COMPATIBLES
+            </div>
           </div>
 
-          <!-- Step 3 -->
-          <div class="relative">
-            <span
-              class="text-xs font-bold uppercase tracking-wider text-slate-400"
-              >Paso 3</span
+          <!-- Block 3 -->
+          <div
+            class="p-8 rounded-3xl bg-slate-900/80 border border-slate-800 hover:border-blue-500/40 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
+          >
+            <div>
+              <div
+                class="text-4xl font-black text-blue-500/30 mb-6 font-heading"
+              >
+                03
+              </div>
+              <h3 class="text-xl font-bold text-white mb-3 font-heading">
+                Limpieza Física & Pasta Térmica Premium
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Desarmado total, limpieza profunda de ventiladores con aire a
+                presión y aplicación de pasta térmica de alta conductividad
+                (Arctic / Noctua).
+              </p>
+            </div>
+            <div
+              class="mt-8 pt-4 border-t border-slate-800 text-xs font-mono text-blue-400"
             >
-            <h3 class="text-base font-bold text-slate-900 mt-1">
-              Reparación y entrega
-            </h3>
-            <p class="mt-2 text-sm text-slate-600 leading-relaxed">
-              Realizamos el servicio con repuestos de calidad y entregamos con
-              su respectiva garantía escrita.
-            </p>
+              // DISMINUCIÓN INMEDIATA DE TEMPERATURA
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer
-      class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 text-xs sm:text-sm"
+    <!-- SECTION: CLEAN FINAL CONVERSION (Negative Space Focus) -->
+    <section
+      class="py-28 sm:py-36 bg-radial-cta border-t border-slate-800 relative overflow-hidden"
     >
       <div
-        class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6"
+        class="max-w-3xl mx-auto px-4 sm:px-6 text-center relative z-10 space-y-8"
+      >
+        <span
+          class="inline-block text-xs font-mono font-bold uppercase tracking-widest text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-4 py-1.5 rounded-full"
+        >
+          Respuesta Inmediata por WhatsApp
+        </span>
+
+        <h2
+          class="text-4xl sm:text-6xl font-black text-white tracking-tight font-heading"
+        >
+          Hablemos de tu computador
+          <span class="text-emerald-400">sin rodeos</span>
+        </h2>
+
+        <p
+          class="text-slate-300 text-base sm:text-xl leading-relaxed max-w-xl mx-auto"
+        >
+          Cuéntanos qué problema tiene tu equipo y te orientamos de inmediato
+          con total honestidad.
+        </p>
+
+        <div class="pt-4 flex justify-center">
+          <a
+            href="https://wa.me/573244712828?text=Hola,%20quiero%20cotizar%20el%20diagnóstico%20de%20mi%20equipo"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-3 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white font-extrabold text-lg px-10 py-5 rounded-2xl shadow-2xl shadow-emerald-900/50 transition-all duration-300 transform hover:scale-105 border border-emerald-400/40"
+          >
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
+              />
+            </svg>
+            <span>Escribir por WhatsApp ahora</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="bg-brand-dark border-t border-slate-900 py-12 text-slate-400 text-xs sm:text-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-6"
       >
         <div class="flex items-center gap-3">
           <img
             src="imagen_freelance.jpg"
-            alt="Soporte Técnico Medellín Logo"
-            onerror="
-              this.onerror = null;
-              this.parentElement.innerHTML =
-                '<div class=\'flex flex-col items-center md:items-start\'><span class=\'font-bold text-white text-base\'>Soporte Técnico Medellín</span><span class=\'text-slate-500 mt-1\'>Servicios técnicos en computación e informática</span></div>';
-            "
-            class="h-10 w-auto object-contain"
+            alt="Logo de Soporte Técnico Medellín"
+            class="w-8 h-8 rounded-lg object-contain"
           />
+          <div class="flex flex-col">
+            <span class="font-bold text-white text-sm font-heading"
+              >Soporte Técnico Medellín</span
+            >
+            <span class="text-slate-500 text-xs"
+              >Reparación física y diagnóstico honesto en Medellín</span
+            >
+          </div>
         </div>
 
-        <!-- Social Links: Instagram & Facebook -->
-        <div class="flex items-center gap-5 sm:gap-6">
-          <!-- Instagram -->
+        <div class="flex items-center gap-6">
           <a
             href="https://www.instagram.com/soporte_tecnico_medellin_ac/"
             target="_blank"
             rel="noopener"
-            aria-label="Instagram"
-            class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+            class="hover:text-white transition-colors"
+            >Instagram</a
           >
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path
-                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-              />
-            </svg>
-            <span>Instagram</span>
-          </a>
-
-          <!-- Facebook -->
           <a
-            href="https://www.facebook.com/profile.php?id=61564257463023&rdid=UwOuJkQ5izijrizH&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CV3oqZmGr%2F"
+            href="https://www.facebook.com/profile.php?id=61564257463023"
             target="_blank"
             rel="noopener"
-            aria-label="Facebook"
-            class="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
+            class="hover:text-white transition-colors"
+            >Facebook</a
           >
-            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-              <path
-                d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-              />
-            </svg>
-            <span>Facebook</span>
-          </a>
         </div>
       </div>
       <div
-        class="max-w-5xl mx-auto px-4 sm:px-6 mt-8 pt-6 border-t border-slate-800/60 text-center md:text-left text-slate-500 text-xs"
+        class="max-w-7xl mx-auto px-4 sm:px-6 mt-8 pt-6 border-t border-slate-900/80 text-center text-slate-600 text-xs"
       >
-        &copy; 2026 Soporte Técnico Medellín AC. Todos los derechos reservados.
+        &copy; 2026 Soporte Técnico Medellín. Todos los derechos reservados.
       </div>
     </footer>
 
-    <!-- Discreet Floating WhatsApp Button -->
+    <!-- Floating WhatsApp Button -->
     <a
       href="https://wa.me/573244712828?text=Hola,%20quisiera%20consultar%20por%20un%20servicio%20técnico%20para%20mi%20computador"
       target="_blank"
       rel="noopener"
       aria-label="Contacto por WhatsApp"
-      class="fixed bottom-5 right-5 z-50 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white p-3.5 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95 flex items-center justify-center"
+      class="fixed bottom-6 right-6 z-50 bg-brand-whatsapp hover:bg-brand-whatsappHover text-white p-4 rounded-full shadow-2xl shadow-emerald-950/80 border border-emerald-400/40 transition-transform hover:scale-110 active:scale-95 flex items-center justify-center"
     >
-      <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+      <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
         <path
           d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"
         />
